@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class FilterJobs {
 
+    private final Duration maxDuration;
     private final List<Job> jobs;
 
     public List<List<Job>> separatedJobs(LocalDateTime start, LocalDateTime end) {
@@ -48,7 +49,7 @@ public class FilterJobs {
         };
     }
 
-    public static FilterJobs createFilter(List<Job> jobs) {
-        return new FilterJobs(jobs);
+    public static FilterJobs createFilter(List<Job> jobs, int maxHourDuration) {
+        return new FilterJobs(Duration.ofHours(maxHourDuration), jobs);
     }
 }

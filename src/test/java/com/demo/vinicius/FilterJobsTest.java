@@ -32,7 +32,7 @@ class FilterJobsTest {
     @MethodSource("providerRangeInvalid")
     @DisplayName("Deve lançar exception quando as data de início e fim estão inválida")
     void shouldThrowsILegalArgumentException(LocalDateTime start, LocalDateTime end) {
-        var filterJobs = FilterJobs.createFilter(Collections.emptyList());
+        var filterJobs = FilterJobs.createFilter(Collections.emptyList(), 8);
         assertThrows(IllegalArgumentException.class, () -> filterJobs.separatedJobs(start, end));
     }
 
@@ -40,7 +40,7 @@ class FilterJobsTest {
     @MethodSource("provideArgumentToTestBetweenDates")
     @DisplayName("Deve retonar jobs entre duas datas")
     void shouldReturnJobsBetweenDates(LocalDateTime start, LocalDateTime end, int expectedSize) {
-        var filterJobs = FilterJobs.createFilter(getJobs());
+        var filterJobs = FilterJobs.createFilter(getJobs(), 8);
 
         var resultList = filterJobs.getStreamSeparateByRange(start, end)
             .collect(Collectors.toList());
