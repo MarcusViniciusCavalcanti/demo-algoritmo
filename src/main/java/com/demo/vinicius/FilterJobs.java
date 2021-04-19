@@ -25,7 +25,10 @@ public class FilterJobs {
             );
         }
 
-        return null;
+        var jobsToExecution = getStreamSeparateByRange(start, end)
+            .collect(new CollectorJobs(maxDuration))
+            .values();
+        return List.copyOf(jobsToExecution);
     }
 
     /**

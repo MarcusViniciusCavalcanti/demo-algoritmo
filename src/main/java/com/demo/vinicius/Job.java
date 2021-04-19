@@ -16,7 +16,7 @@ public class Job {
     private static final Predicate<String> hoursAndMinutesSecond =
         (time) -> time.matches("^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$");
     private static final Predicate<String> hoursAndMinutesSecondMillis =
-        (time) -> time.matches("^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]:\\d{1,9}$");
+        (time) -> time.matches("^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]:\\d{1,2}$");
 
     @Setter
     private Integer id;

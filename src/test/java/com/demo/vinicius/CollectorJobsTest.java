@@ -28,8 +28,8 @@ class CollectorJobsTest {
         var jobs06 = buildJobs(6, "Description 00:00:01", "00:00:01");
         var jobs07 = buildJobs(7, "Description 7:59:59:9", "7:59:59:9");
         var jobs08 = buildJobs(8, "Description 00:00:00:1", "00:00:00:1");
-        var jobs09 = buildJobs(9, "Description 7:59:59:59:999999999", "7:59:59:59:999999999");
-        var jobs10 = buildJobs(10, "Description 00:00:00:00:000000001", "00:00:00:00:000000001");
+        var jobs09 = buildJobs(9, "Description 7:59:59:999999999", "7:59:59:99");
+        var jobs10 = buildJobs(10, "Description 00:00:00:000000001", "00:00:00:01");
 
         var collector = new CollectorJobs(Duration.ofHours(8));
 
